@@ -5,13 +5,9 @@
 # but you can also edit it by hand.
 
 meteor-base
-session
-blaze-html-templates
-standard-minifiers
+templating
 mongo
 random
 mquandalle:bower
 differential:vulcanize
 pixto:polymer-meteor-elements
-ejson
-tracker
