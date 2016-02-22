@@ -1,0 +1,24 @@
+{
+  "name": "Polymer leaderboard",
+  "version": "0.1.0",
+  "authors": [
+    "Cyrille Colin <cyrille.colin@eskan.fr>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.4"
+  },
+  "overrides": {
+    "webcomponentsjs": {
+      "main": []
+    }
+  }
+}

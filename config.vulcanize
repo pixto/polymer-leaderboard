@@ -1,0 +1,7 @@
+{
+  "polyfill": "/bower_components/webcomponentsjs/webcomponents-lite.min.js",
+  "useShadowDom": false,
+  "imports": [
+    "/components/leaderboard-app.html"
+  ]
+}

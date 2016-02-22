@@ -1,0 +1,72 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="leaderboard-app-styles.html">
+
+<dom-module id="leaderboard-app">
+  <template>
+  <style include="leaderboard-app-styles"></style>
+  <style>
+  * {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  :host {
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 3em 0;
+    padding: 0;
+  }
+  [hidden] {
+    display : none !important;
+  }
+  </style>
+
+
+  <meteor-subscribe name="players" args="[]" isready="{{_subready}}"></meteor-subscribe>
+
+  <meteor-collection id="_playerCollection" name="players">
+    <meteor-query options="{{options}}" data="{{items}}" enable="{{_subready}}"></meteor-query>
+  </meteor-collection>
+
+  <array-selector id="selector" items="[[items]]" selected="{{currentSelectedPlayer}}"></array-selector>
+
+  <div class="outer">
+    <div class="logo"></div>
+    <h1 class="title">Leaderboard</h1>
+    <div class="subtitle">Select a scientist to give them points</div>
+
+    <ol class="leaderboard">
+      <template id="playersList" is="dom-repeat" items="[[items]]">
+        <li class="player" on-tap="_selectPlayer">
+          <span class="name">[[item.name]]</span>
+          <span class="score">[[item.score]]</span>
+        </li>
+      </template>
+    </ol>
+
+    <div class="details" hidden$="[[!currentSelectedPlayer]]">
+      <div class="name">[[currentSelectedPlayer.name]]</div>
+      <button class="inc" on-tap="_incPoints">Add 5 points</button>
+    </div>
+    <div class="message" hidden$="[[currentSelectedPlayer]]">Click a player to select</div>
+  </div>
+</template>
+
+<script>
+Polymer({
+  is: 'leaderboard-app',
+  ready: function() {
+    this.options = { sort: { score: -1, name: 1 }};
+  },
+  _selectPlayer: function(e) {
+    var player = this.$.playersList.itemForElement(e.target);
+    this.$.selector.select(player);
+    this.toggleClass('selected',false, this.$$('.player.selected'));
+    this.toggleClass('selected',true, e.currentTarget);
+  },
+  _incPoints: function(e) {
+    this.$._playerCollection.update(this.$.selector.selected._id, {$inc: {score: 5} });
+  }
+});
+</script>
+</dom-module>
