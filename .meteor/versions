@@ -37,11 +37,10 @@ minifiers@1.1.7
 minimongo@1.0.10
 mongo@1.1.3
 mongo-id@1.0.1
-mquandalle:bower@1.5.2_1
 npm-mongo@1.4.39_1
 observe-sequence@1.0.7
 ordered-dict@1.0.4
-pixto:polymer-meteor-elements@0.1.3
+pixto:polymer-meteor-elements@0.2.1
 promise@0.5.1
 random@1.0.5
 reactive-dict@1.1.3
