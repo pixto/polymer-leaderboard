@@ -8,5 +8,5 @@ meteor-base
 templating
 mongo
 random
-differential:vulcanize
 pixto:polymer-meteor-elements
+differential:vulcanize
