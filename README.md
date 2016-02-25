@@ -13,9 +13,6 @@ meteor run
 ```
 then open your browser at http://localhost:3000
 
-Bower dependencies are installed automatically by mquandalle:bower and
-html import (with vulcanization if needed) by differential:vulcanize
-
 ## Informations
 
 In this project, meteor templates are not used to create views. There is only one &lt;body&gt; element :
