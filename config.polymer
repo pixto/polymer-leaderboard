@@ -1,0 +1,7 @@
+{
+  "directory" : ".polymer",
+  "importFile": "/public/components/leaderboard-app.html",
+  "dependencies" : [
+    "PolymerElements/paper-drawer-panel#1.0.6"
+  ]
+}
